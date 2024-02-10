@@ -39,6 +39,13 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
         }
 
         return GestureDetector(
+          onTap: () {
+            if (controller.value.isPlaying) {
+              controller.pause();
+              return;
+            }
+            controller.play();
+          },
           child: AspectRatio(
             aspectRatio: controller.value.aspectRatio,
             child: Stack(children: [
